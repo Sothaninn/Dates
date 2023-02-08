@@ -20,7 +20,7 @@ class DateModel {
         this.schema = new Mongoose.Schema(
             {
                 name: String,
-                description: Number,
+                description: String,
                 dateId: Number,
                 address: String,
                 openingHours: String,
