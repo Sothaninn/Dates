@@ -28,7 +28,7 @@ class App {
     
 
   this.express.use('/', router);
-
+  this.express.use('/', express.static(__dirname+'/pages'));
   }
 
 }
