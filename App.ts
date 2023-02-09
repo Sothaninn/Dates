@@ -49,6 +49,12 @@ class App {
       this.Reviews.getReviewCount(res)
     });
 
+    router.get('/app/review/:reviewId', (req, res) => {
+      var id = req.params.reviewId;
+      console.log('Query single review with review id: ' + id);
+      this.Reviews.getReviews(res, {reviewId: id})
+    });
+
   this.express.use('/', router);
   this.express.use('/', express.static(__dirname+'/pages'));
 

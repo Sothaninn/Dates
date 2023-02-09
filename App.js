@@ -30,9 +30,15 @@ var App = /** @class */ (function () {
             console.log('Query single date with id: ' + id);
             _this.Dates.getDateDetails(res, { dateId: id });
         });
+        //api route retrieve total reviews
         router.get('/app/reviewcount', function (req, res) {
             console.log('Query num reviews in db');
             _this.Reviews.getReviewCount(res);
+        });
+        router.get('/app/review/:reviewId', function (req, res) {
+            var id = req.params.reviewId;
+            console.log('Query single review with review id: ' + id);
+            _this.Reviews.getReviews(res, { reviewId: id });
         });
         this.express.use('/', router);
         this.express.use('/', express.static(__dirname + '/pages'));

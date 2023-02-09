@@ -1,0 +1,77 @@
+{
+    "info": {
+        "_postman_id": "36b69bf9-9da8-4683-b731-dc78794dddb0",
+        "name" : "Mongoose",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+		{
+			"name": "Retrieve a date",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/app/date/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"date",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve number of reviews",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/app/reviewcount",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"reviewcount",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		
+		{
+			"name": "Retrieve reviews",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/app/review/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"app",
+						"review",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+		
+	]
+
+}
+
+
