@@ -43,6 +43,7 @@ class App {
       this.Dates.getDateDetails(res, {dateId: id})
     });
 
+    //api route retrieve total reviews
     router.get('/app/reviewcount', (req, res) => {
       console.log('Query num reviews in db');
       this.Reviews.getReviewCount(res)
