@@ -24,15 +24,26 @@ var App = /** @class */ (function () {
     App.prototype.routes = function () {
         var _this = this;
         var router = express.Router();
+        router.get('/app/date/', function (req, res) {
+            console.log('Query All dates');
+            _this.Dates.getAllDates(res);
+        });
         //retreive info of single date
         router.get('/app/date/:dateId', function (req, res) {
             var id = req.params.dateId;
             console.log('Query single date with id: ' + id);
             _this.Dates.getDateDetails(res, { dateId: id });
         });
-        router.get('/app/reviewcount', function (req, res) {
+        router.get('/app/review/:reviewId', function (req, res) {
+            var id = req.params.reviewId;
             console.log('Query num reviews in db');
-            _this.Reviews.getReviewCount(res);
+            _this.Reviews.getReview(res, { reviewId: id });
+        });
+        //api route retrieve total reviews
+        router.get('/app/reviewcount/:dateId/count', function (req, res) {
+            var id = req.params.dateId;
+            console.log('Query num reviews in db');
+            _this.Reviews.getReviewCount(res, { dateId: id });
         });
         this.express.use('/', router);
         this.express.use('/', express.static(__dirname + '/pages'));

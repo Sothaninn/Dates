@@ -36,6 +36,11 @@ class App {
   private routes(): void {
     let router = express.Router();
 
+    router.get('/app/date/', (req, res) => {
+      console.log('Query All dates');
+      this.Dates.getAllDates(res);
+    });
+
     //retreive info of single date
     router.get('/app/date/:dateId', (req, res) => {
       var id = req.params.dateId;
@@ -43,10 +48,17 @@ class App {
       this.Dates.getDateDetails(res, {dateId: id})
     });
 
-    //api route retrieve total reviews
-    router.get('/app/reviewcount', (req, res) => {
+    router.get('/app/review/:reviewId', (req, res) => {
+      var id = req.params.reviewId;
       console.log('Query num reviews in db');
-      this.Reviews.getReviewCount(res)
+      this.Reviews.getReview(res, {reviewId: id})
+    });
+
+    //api route retrieve total reviews
+    router.get('/app/reviewcount/:dateId/count', (req, res) => {
+      var id = req.params.dateId;
+      console.log('Query num reviews in db');
+      this.Reviews.getReviewCount(res, {dateId: id})
     });
 
   this.express.use('/', router);

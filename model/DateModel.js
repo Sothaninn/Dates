@@ -29,6 +29,12 @@ var DateModel = /** @class */ (function () {
             response.json(itemArray);
         });
     };
+    DateModel.prototype.getAllDates = function (response) {
+        var query = this.model.find({});
+        query.exec(function (err, itemArray) {
+            response.json(itemArray);
+        });
+    };
     return DateModel;
 }());
 exports.DateModel = DateModel;

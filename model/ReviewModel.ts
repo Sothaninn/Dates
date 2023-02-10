@@ -37,19 +37,30 @@ class ReviewModel {
         this.model = mongooseConnection.model<IReviewModel>("Review", this.schema);
     }
     
-    public getReviews(response:any, filter:Object) {
+    public getReview(response:any, filter:Object) {
         var query = this.model.findOne(filter);
         query.exec( (err, itemArray) => {
             response.json(itemArray);
         });
     }
 
-    public getReviewCount(response:any): any {
-        console.log("Get List Count ...");
-        var query = this.model.estimatedDocumentCount();
-        query.exec( (err, numReviews) => {
-            console.log("numReviews: " + numReviews);
-            response.json(numReviews) ;
+    public getReviewCount(response:any, filter:Object) {
+        console.log("Getting review count")
+        var query = this.model.findOne(filter);
+        query.exec( (err, innerReviews) => {
+            if (err) {
+                console.log('error retrieving count');
+            }
+            else {
+                if (innerReviews == null) {
+                    response.status(404);
+                    response.json('{count: -1}');
+                }
+                else {
+                    console.log('number of tasks: ' + innerReviews.reviews.length);
+                    response.json('{count:' + innerReviews.reviews.length + '}');
+                }
+            }
         });
     }
 }

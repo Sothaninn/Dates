@@ -27,18 +27,29 @@ var ReviewModel = /** @class */ (function () {
     ReviewModel.prototype.createModel = function () {
         this.model = mongooseConnection.model("Review", this.schema);
     };
-    ReviewModel.prototype.getReviews = function (response, filter) {
+    ReviewModel.prototype.getReview = function (response, filter) {
         var query = this.model.findOne(filter);
         query.exec(function (err, itemArray) {
             response.json(itemArray);
         });
     };
-    ReviewModel.prototype.getReviewCount = function (response) {
-        console.log("Get List Count ...");
-        var query = this.model.estimatedDocumentCount();
-        query.exec(function (err, numReviews) {
-            console.log("numReviews: " + numReviews);
-            response.json(numReviews);
+    ReviewModel.prototype.getReviewCount = function (response, filter) {
+        console.log("Getting review count");
+        var query = this.model.findOne(filter);
+        query.exec(function (err, innerReviews) {
+            if (err) {
+                console.log('error retrieving count');
+            }
+            else {
+                if (innerReviews == null) {
+                    response.status(404);
+                    response.json('{count: -1}');
+                }
+                else {
+                    console.log('number of tasks: ' + innerReviews.reviews.length);
+                    response.json('{count:' + innerReviews.reviews.length + '}');
+                }
+            }
         });
     };
     return ReviewModel;
