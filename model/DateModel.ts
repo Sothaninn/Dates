@@ -39,5 +39,12 @@ class DateModel {
             response.json(itemArray);
         });
     }
+
+    public getAllDates(response:any): any {
+        var query = this.model.find({});
+        query.exec( (err, itemArray) => {
+            response.json(itemArray) ;
+        });
+    }
 }
 export {DateModel};

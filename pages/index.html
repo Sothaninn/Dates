@@ -1,8 +1,79 @@
 <html>
-    <head>
+	<head> 
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
-    </head>
-    <body>
-        <p>foo</p>
-    </body>
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+	</head>
+	</head>
+	<body onload="initXHR('home', null)">
+		<div class="container">
+
+		  <!-- Static navbar -->
+		  <nav class="navbar navbar-default">
+			<div class="container-fluid">
+			  <div class="navbar-header">
+				<a class="navbar-brand" href="javascript:initXHR('home', null)">Dates</a>
+			  </div>
+			  <div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav">
+				  <li><a href="#">Home</a></li>
+				<ul class="nav navbar-nav navbar-right">
+				  <li><a href="#">Login</a></li>
+				</ul>
+			  </div><!--/.nav-collapse -->
+			</div><!--/.container-fluid -->
+		  </nav>
+		  
+		<div id="home">
+		  <!-- Main component for a primary marketing message or call to action -->
+		  <div class="jumbotron">
+			<h1>Dates</h1>
+			<p>Aw yea one step closer to a relationship.</p>
+			<p>
+			  <a class="btn btn-lg btn-primary" href="javascript:initXHR('dates', null)" role="button">View</a>
+			</p>
+		  </div>
+		</div>
+		
+		<div id="dates" style="display:none;">
+		</div>
+
+		<div id="gList" style="display:none;">
+			<div class="panel panel-default">
+			  <!-- Default panel contents -->
+			  <div class="panel-heading"> 
+				  <h3>List</h3>
+				  <div>
+					<a href="#"><span class="glyphicon glyphicon-edit"></span></a>
+					<a href="#"><span class="glyphicon glyphicon-trash"></span></a>
+					<a href="#"><span class="glyphicon glyphicon-ok"></span></a>
+				  </div>
+			  </div>
+				<!-- Table -->
+				<table class="table" style="font-size:10pt;">
+					<thead>
+						<tr>
+							<th>Reviews</th>
+							<th width="5%">Title</th>
+							<th width="5%">Description</th>
+							<th width="5%">Price Level</th>
+						</tr>
+					</thead>
+					<tbody id='tasks'>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		
+		</div> <!-- /container -->
+	
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+	<script src="/script.js"></script>
+	</body>
 </html>

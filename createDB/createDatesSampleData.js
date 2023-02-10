@@ -1,8 +1,8 @@
 db = db.getSiblingDB('dateSample')
 db.createCollection('dates')
-listsCollection = db.getCollection("dates")
-listsCollection.remove({})
-listsCollection.insert(
+datesCollection = db.getCollection("dates")
+datesCollection.remove({})
+datesCollection.insert(
 {
 	  name: "Bateau",
 	  description: "Steak House",
@@ -12,7 +12,7 @@ listsCollection.insert(
 	  contactInfo: "206-900-8699"
 }
 )
-listsCollection.insert(
+datesCollection.insert(
 {
     name: "AMC Pacific Place 11",
     description: "Theatre",
@@ -22,7 +22,7 @@ listsCollection.insert(
     contactInfo: "amctheatres.com"
 }
 )
-listsCollection.insert(
+datesCollection.insert(
 {
 	  name: "Seattle Bouldering Project Poplar",
 	  description: "Rock-climbing gym",
@@ -33,9 +33,9 @@ listsCollection.insert(
 }
 )
 db.createCollection('reviews')
-tasksCollection = db.getCollection("reviews")
-tasksCollection.remove({})
-tasksCollection.insert(
+reviewsCollection = db.getCollection("reviews")
+reviewsCollection.remove({})
+reviewsCollection.insert(
 {
 	dateId : 1,
 	reviews : [
@@ -77,7 +77,7 @@ tasksCollection.insert(
 	]
 }
 )
-tasksCollection.insert(
+reviewsCollection.insert(
 {
 	dateId : 2,
 	reviews : [
@@ -119,7 +119,7 @@ tasksCollection.insert(
 	]	
 }
 )
-tasksCollection.insert(
+reviewsCollection.insert(
 {
 	dateId : 3,
 	reviews : [
