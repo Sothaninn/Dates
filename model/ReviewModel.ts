@@ -20,7 +20,7 @@ class ReviewModel {
         this.schema = new Mongoose.Schema(
             {
                 dateId: Number,
-                dates: [
+                reviews: [
                     {
                         reviewId: Number,
                         title: String,
