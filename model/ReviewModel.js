@@ -13,7 +13,7 @@ var ReviewModel = /** @class */ (function () {
     ReviewModel.prototype.createSchema = function () {
         this.schema = new Mongoose.Schema({
             dateId: Number,
-            dates: [
+            reviews: [
                 {
                     reviewId: Number,
                     title: String,
